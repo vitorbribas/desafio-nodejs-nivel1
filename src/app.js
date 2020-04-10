@@ -41,11 +41,9 @@ app.put("/repositories/:id", (request, response) => {
     return response.status(400).json({ error: 'Repository not found.'});
   }
 
-  repositories[repositoryIndex] = {
-    title,
-    url,
-    techs
-  };
+  repositories[repositoryIndex].title = title;
+  repositories[repositoryIndex].url = url;
+  repositories[repositoryIndex].techs = techs;
 
   return response.json(repositories[repositoryIndex]);
 });
