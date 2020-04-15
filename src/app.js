@@ -71,13 +71,9 @@ app.post("/repositories/:id/like", (request, response) => {
     return response.status(400).json({ error: 'Repository not found.'});
   }
 
-  let repository = repositories[repositoryIndex];
-  let likes = repository.likes;
+  repositories[repositoryIndex].likes++;
 
-  repository.likes = likes + 1;
-  repositories[repositoryIndex] = repository;
-
-  return response.json(repository);
+  return response.json(repositories[repositoryIndex]);
 });
 
 module.exports = app;
